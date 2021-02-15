@@ -1,551 +1,614 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard</title>
-        <!--CDN de Tailwind-->
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-        <!--CDN de Font-Awesome-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@3.0.6/css/line.css">
-    </head>
-    <body>
-        <head>
-                    <!-- NavBar -->
-            <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-            <script src="https://kit.fontawesome.com/c151b27f34.js" crossorigin="anonymous"></script>
 
-            <div class="antialiased bg-gray-100 dark-mode:bg-gray-900">
-            <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
-                <div x-data="{ open: true }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-                <div class="flex flex-row items-center justify-between p-4">
-                    <img src="images/AdminLTELogo.png" alt="Logo" style="width: 50px; margin: 0px 5px">
-                    <a href="#" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">AdminLTE</a>
-                    <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
-                    <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-                        <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                        <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                    </svg>
-                    </button>
-                </div>
-                <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-start md:flex-row">
-                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Home</a>
-                    <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Contact</a>
-                    <div class="relative mx-auto text-gray-600 lg:block hidden">
-                        <input
-                            class="border-2 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none"
-                            type="search" name="search" placeholder="Search">
-                        <button type="submit" class="absolute right-0 top-0 mt-3 mr-2">
-                            <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
-                                version="1.1" id="Capa_1" x="0px" y="0px"
-                                viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;"
-                                xml:space="preserve"
-                                width="512px" height="512px">
-                        <path
-                            d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z"/>
-                    </svg>
-                        </button>
-                    </div> 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <!--CDN de Tailwind-->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <!--CDN de Font-Awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@3.0.6/css/line.css">
+</head>
 
-                <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown item" style="list-style: none; margin: 0 10px">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="far fa-comments"></i>
-                    </a>
-                </li>
-                <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown item" style="list-style: none; margin: 0 10px">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="far fa-bell"></i>
-                    </a>
-                </li>
-                <li class="nav-item item" style="list-style: none; margin: 0 10px">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                    <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-                <li class="nav-item item" style="list-style: none; margin: 0 10px">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                    <i class="fas fa-th-large"></i>
-                    </a>
-                </li>
-                </nav>
-                </div>
-            </div>
-            </div>
-        </head>
+<body>
 
-        <main>
-            <!-- Sidebar -->
-            <div class="flex flex-wrap bg-gray-100 w-full h-screen">
-            <div class="w-3/12 bg-white p-3 shadow-lg">
-                <div class="flex items-center space-x-4 p-2 mb-5">
-                    <img class="h-12 rounded-full" src="images/avatar.png" alt="Avatar">
-                    <div>
-                        <h4 class="font-semibold text-lg text-gray-700 capitalize font-poppins tracking-wide">Nombre de usuario</h4>
-                        <span class="text-sm tracking-wide flex items-center space-x-1">
-                            <svg class="h-4 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                            </svg><span class="text-gray-600">Verified</span>
-                        </span>
-                    </div>
-                </div>
-                <ul class="space-y-2 text-sm">
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 bg-gray-200 focus:shadow-outline">
-                            <span class="text-gray-600">
-                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </span>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
-                            <span class="text-gray-600">
-                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-                                </svg>
-                            </span>
-                            <span>Notifications</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
-                            <span class="text-gray-600">
-                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
-                                </svg>
-                            </span>
-                            <span>Personal messages</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
-                            <span class="text-gray-600">
-                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                </svg>
-                            </span>
-                            <span>My profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
-                            <span class="text-gray-600">
-                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                                </svg>
-                            </span>
-                            <span>My orders</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
-                            <span class=" text-gray-600">
-                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                </svg>
-                            </span>
-                            <span>My wishlist</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
-                            <span class="text-gray-600">
-                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-                                </svg>
-                            </span>
-                            <span>Settings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
-                            <span class="text-gray-600">
-                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </span>
-                            <span>Change password</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
-                            <span class="text-gray-600">
-                                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                </svg>
-                            </span>
-                            <span>Logout</span>
-                        </a>
-                    </li>
-                </ul>
+  <head>
+    <!-- NavBar -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://kit.fontawesome.com/c151b27f34.js" crossorigin="anonymous"></script>
+
+    <div class="antialiased bg-gray-100 dark-mode:bg-gray-900">
+      <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
+        <div x-data="{ open: true }"
+          class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+          <div class="flex flex-row items-center justify-between p-4">
+            <img src="images/AdminLTELogo.png" alt="Logo" style="width: 50px; margin: 0px 5px">
+            <a href="#"
+              class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">AdminLTE</a>
+            <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
+              <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                <path x-show="!open" fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                  clip-rule="evenodd"></path>
+                <path x-show="open" fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <nav :class="{'flex': open, 'hidden': !open}"
+            class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-start md:flex-row">
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+              href="#">Home</a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+              href="#">Contact</a>
+            <div class="relative mx-auto text-gray-600 lg:block hidden">
+              <input class="border-2 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none"
+                type="search" name="search" placeholder="Search">
+              <button type="submit" class="absolute right-0 top-0 mt-3 mr-2">
+                <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                  id="Capa_1" x="0px" y="0px" viewBox="0 0 56.966 56.966"
+                  style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve" width="512px" height="512px">
+                  <path
+                    d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+                </svg>
+              </button>
             </div>
 
-           
+            <!-- Messages Dropdown Menu -->
+            <li class="nav-item dropdown item" style="list-style: none; margin: 0 10px">
+              <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-comments"></i>
+              </a>
+            </li>
+            <!-- Notifications Dropdown Menu -->
+            <li class="nav-item dropdown item" style="list-style: none; margin: 0 10px">
+              <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-bell"></i>
+              </a>
+            </li>
+            <li class="nav-item item" style="list-style: none; margin: 0 10px">
+              <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                <i class="fas fa-expand-arrows-alt"></i>
+              </a>
+            </li>
+            <li class="nav-item item" style="list-style: none; margin: 0 10px">
+              <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                <i class="fas fa-th-large"></i>
+              </a>
+            </li>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </head>
+
+  <main>
+    <!-- Sidebar -->
+    <div class="flex flex-wrap bg-gray-100 w-full h-screen">
+      <div class="w-3/12 bg-white p-3 shadow-lg">
+        <div class="flex items-center space-x-4 p-2 mb-5">
+          <img class="h-12 rounded-full" src="images/avatar.png" alt="Avatar">
+          <div>
+            <h4 class="font-semibold text-lg text-gray-700 capitalize font-poppins tracking-wide">Nombre de usuario</h4>
+            <span class="text-sm tracking-wide flex items-center space-x-1">
+              <svg class="h-4 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg><span class="text-gray-600">Verified</span>
+            </span>
+          </div>
+        </div>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="#"
+              class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 bg-gray-200 focus:shadow-outline">
+              <span class="text-gray-600">
+                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+              <span class="text-gray-600">
+                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                  </path>
+                </svg>
+              </span>
+              <span>Notifications</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+              <span class="text-gray-600">
+                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
+                  </path>
+                </svg>
+              </span>
+              <span>Personal messages</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+              <span class="text-gray-600">
+                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </span>
+              <span>My profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+              <span class="text-gray-600">
+                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
+              </span>
+              <span>My orders</span>
+            </a>
+          </li>
+          <li>
+            <a href=""
+              class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+              <span class=" text-gray-600">
+                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </span>
+              <span>My wishlist</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+              <span class="text-gray-600">
+                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
+                  </path>
+                </svg>
+              </span>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+              <span class="text-gray-600">
+                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </span>
+              <span>Change password</span>
+            </a>
+          </li>
+          <li>
+            <a href="#"
+              class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline">
+              <span class="text-gray-600">
+                <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+              </span>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
 
 
 
-            
-            
-            <div class="w-9/12">
 
-                 <!--
+
+
+
+      <div class="w-9/12">
+
+        <!--
                 Tarjetas de estado 
             -->
-            <div class="grid gap-0.001 grid-cols-1 md:grid-cols-4 p-2">
-                <div><div class="card"  >
-                    <div class="flex">
-                        <div class="flex-none w-24 h-24 relative self-center items-center justify-center " style="background-color: #00c0ef;">
-                          <img src="./PNG/configuraciones.png" alt="" class="relative self-center animate-pulse w-full h-full" />
-                          <!-- si le pones un color de fondo a la imagen hace la animación pulso con el color de fondo
+        <div class="grid gap-0.001 grid-cols-1 md:grid-cols-4 p-2">
+          <div>
+            <div class="card">
+              <div class="flex">
+                <div class="flex-none w-24 h-24 relative self-center items-center justify-center "
+                  style="background-color: #00c0ef;">
+                  <img src="./PNG/configuraciones.png" alt=""
+                    class="relative self-center animate-pulse w-full h-full" />
+                  <!-- si le pones un color de fondo a la imagen hace la animación pulso con el color de fondo
                                <img src="./PNG/configuraciones.png" alt="" class="relative self-center animate-pulse w-full h-full bg-gray-100" />
                           -->
-                        </div>
-                        <form class="flex-auto p-6">
-                          <div class="flex flex-wrap">
-                            <h1 class="flex-auto text-xl font-semibold">
-                              CPU TRAFIC
-                            </h1>
-                            
-                            <div class="w-full flex-none text-xl font-semibold text-gray-500 mt-2">
-                              100%
-                            </div>
-                          </div>
-                          <p class="text-sm text-gray-500">
-                            Lorem ipsum dolor sit amet 
-                          </p>
-                        </form>
-                      </div>
-                </div></div>
-                <div><div class="card  "style="background-color: ;" >
-                  <div class="flex">
-                      <div class="flex-none w-24 h-24 relative self-center items-center justify-center " style="background-color: #dd4b39;">
-                        <img src="./PNG/like.png" alt="" class="relative self-center animate-pulse w-full h-full" />
-                      </div>
-                      <form class="flex-auto p-6">
-                        <div class="flex flex-wrap">
-                          <h1 class="flex-auto text-xl font-semibold">
-                            LIKES
-                          </h1>
-                          
-                          <div class="w-full flex-none text-xl font-semibold text-gray-500 mt-2">
-                            41,410
-                          </div>
-                        </div>
-                        <p class="text-sm text-gray-500">
-                          Lorem ipsum dolor sit amet 
-                         </p>
-                      </form>
-                    </div>
-              </div></div>
-              <div><div class="card  "style="background-color: ;" >
-                <div class="flex">
-                    <div class="flex-none w-24 h-24 relative self-center items-center justify-center " style="background-color: #00a65a;">
-                      <img src="./PNG/sales.png" alt="" class="relative self-center animate-pulse w-full h-full" />
-                    </div>
-                    <form class="flex-auto p-6">
-                      <div class="flex flex-wrap">
-                        <h1 class="flex-auto text-xl font-semibold">
-                          SALES
-                        </h1>
-                        
-                        <div class="w-full flex-none text-xl font-semibold text-gray-500 mt-2">
-                          760
-                        </div>
-                      </div>
-                      <p class="text-sm text-gray-500">
-                        Lorem ipsum dolor sit amet 
-                       </p>
-                    </form>
-                  </div>
-            </div></div>
-              <div><div class="card  "style="background-color: ;" >
-                <div class="flex">
-                    <div class="flex-none w-24 h-24 relative self-center items-center justify-center " style="background-color: #f39c12;">
-                      <img src="./PNG/team.png" alt="" class="relative self-center animate-pulse w-full h-full" />
-                    </div>
-                    <form class="flex-auto p-6">
-                      <div class="flex flex-wrap">
-                        <h1 class="flex-auto text-xl font-semibold">
-                          MEMBERS
-                        </h1>
-                        
-                        <div class="w-full flex-none text-xl font-semibold text-gray-500 mt-2">
-                           2,000
-                        </div>
-                      </div>
-                      <p class="text-sm text-gray-500">
-                        Lorem ipsum dolor sit amet 
-                       </p>
-                    </form>
-                  </div>
-            </div></div>
-            
-                
-              </div>
+                </div>
+                <form class="flex-auto p-6">
+                  <div class="flex flex-wrap">
+                    <h1 class="flex-auto text-xl font-semibold">
+                      CPU TRAFIC
+                    </h1>
 
-              <!--
+                    <div class="w-full flex-none text-xl font-semibold text-gray-500 mt-2">
+                      100%
+                    </div>
+                  </div>
+                  <p class="text-sm text-gray-500">
+                    Lorem ipsum dolor sit amet
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card  ">
+              <div class="flex">
+                <div class="flex-none w-24 h-24 relative self-center items-center justify-center "
+                  style="background-color: #dd4b39;">
+                  <img src="./PNG/like.png" alt="" class="relative self-center animate-pulse w-full h-full" />
+                </div>
+                <form class="flex-auto p-6">
+                  <div class="flex flex-wrap">
+                    <h1 class="flex-auto text-xl font-semibold">
+                      LIKES
+                    </h1>
+
+                    <div class="w-full flex-none text-xl font-semibold text-gray-500 mt-2">
+                      41,410
+                    </div>
+                  </div>
+                  <p class="text-sm text-gray-500">
+                    Lorem ipsum dolor sit amet
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card  " >
+              <div class="flex">
+                <div class="flex-none w-24 h-24 relative self-center items-center justify-center "
+                  style="background-color: #00a65a;">
+                  <img src="./PNG/sales.png" alt="" class="relative self-center animate-pulse w-full h-full" />
+                </div>
+                <form class="flex-auto p-6">
+                  <div class="flex flex-wrap">
+                    <h1 class="flex-auto text-xl font-semibold">
+                      SALES
+                    </h1>
+
+                    <div class="w-full flex-none text-xl font-semibold text-gray-500 mt-2">
+                      760
+                    </div>
+                  </div>
+                  <p class="text-sm text-gray-500">
+                    Lorem ipsum dolor sit amet
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card  " >
+              <div class="flex">
+                <div class="flex-none w-24 h-24 relative self-center items-center justify-center "
+                  style="background-color: #f39c12;">
+                  <img src="./PNG/team.png" alt="" class="relative self-center animate-pulse w-full h-full" />
+                </div>
+                <form class="flex-auto p-6">
+                  <div class="flex flex-wrap">
+                    <h1 class="flex-auto text-xl font-semibold">
+                      MEMBERS
+                    </h1>
+
+                    <div class="w-full flex-none text-xl font-semibold text-gray-500 mt-2">
+                      2,000
+                    </div>
+                  </div>
+                  <p class="text-sm text-gray-500">
+                    Lorem ipsum dolor sit amet
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        <!--
                 Termina tarjetas de estado 
             -->
 
 
 
-                <div class="p-4 text-gray-500">
-                    <div class="p-1 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-2">
-                        <!--Card 1-->
-                        <div class="rounded overflow-hidden shadow-lg">
-                          <img class="w-full" src="/images/analyticss.PNG" alt="analytics">
-                          <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2">Sales</div>
-                            <p class="text-gray-700 text-base">
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-                            </p>
-                          </div>
+        <div class="p-4 text-gray-500">
+          <div class="p-1 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-2">
+            <!--Card 1-->
+            <div class="rounded overflow-hidden shadow-lg">
+              <img class="w-full" src="/images/analyticss.PNG" alt="analytics">
+              <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Sales</div>
+                <p class="text-gray-700 text-base">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et
+                  perferendis eaque, exercitationem praesentium nihil.
+                </p>
+              </div>
+            </div>
+            <!--Card 2-->
+            <div class="rounded overflow-hidden shadow-lg">
+              <img class="w-full" src="/images/map.png" alt="visitors">
+              <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">Visitors</div>
+                <p class="text-gray-700 text-base">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et
+                  perferendis eaque, exercitationem praesentium nihil.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--Direct chat-->
+          <div class="p-1 grid grid-cols-1 sm:grid-cols-1 md:grid-flow-cols md:grid-cols-2 ">
+            <div class="rounded shadow-lg bg-gray-100">
+              <div class="bg-gray-600 text-white text-center  ">
+                Direct chat
+              </div>
+              <div class="overflow-auto h-40 ">
+
+
+                <div class="w-full px-5 flex flex-col justify-between">
+                  <div class="flex flex-col mt-5">
+                    <div class="flex justify-end mb-4">
+                      <div class="mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
+                        Welcome to group everyone !
+                      </div>
+                      <img src="./images/letra-A.png" class="object-cover h-8 w-8 rounded-full" alt="" />
+                    </div>
+                    <div class="flex justify-start mb-4">
+                      <img src="./images/letra-C.png" class="object-cover h-8 w-8 rounded-full" alt="" />
+                      <div class="ml-2 py-3 px-4 bg-gray-400 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+                        at praesentium, aut ullam delectus odio error sit rem. Architecto
+                        nulla doloribus laborum illo rem enim dolor odio saepe,
+                        consequatur quas?
+                      </div>
+                    </div>
+                    <div class="flex justify-end mb-4">
+                      <div>
+                        <div class="mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
+                          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                          Magnam, repudiandae.
                         </div>
-                        <!--Card 2-->
-                        <div class="rounded overflow-hidden shadow-lg">
-                          <img class="w-full" src="/images/map.png" alt="visitors">
-                          <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2">Visitors</div>
-                            <p class="text-gray-700 text-base">
-                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-                            </p>
+
+                        <div
+                          class="mt-4 mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                          Debitis, reiciendis!
+                        </div>
+                      </div>
+                      <img src="./images/letra-A.png" class="object-cover h-8 w-8 rounded-full" alt="" />
+                    </div>
+                    <div class="flex justify-start mb-4">
+                      <img src="./images/letra-C.png" class="object-cover h-8 w-8 rounded-full" alt="" />
+                      <div class="ml-2 py-3 px-4 bg-gray-400 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white">
+                        happy holiday guys!
+                      </div>
+                    </div>
+                  </div>
+                  <div class="py-5">
+                    <input class="w-full bg-gray-300 py-5 px-3 rounded-xl" type="text"
+                      placeholder="type your message here..." />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--graph-->
+            <div class="rounded shadow-lg ">
+              <!-- component -->
+              <div class="antialiased sans-serif    ">
+
+                <style>
+                  body {
+                    font-family: 'IBM Plex Mono', sans-serif;
+                  }
+
+                  [x-cloak] {
+                    display: none;
+                  }
+
+                  .line {
+                    background: repeating-linear-gradient(to bottom,
+                        #eee,
+                        #eee 1px,
+                        #fff 1px,
+                        #fff 8%);
+                  }
+
+                  .tick {
+                    background: repeating-linear-gradient(to right,
+                        #eee,
+                        #eee 1px,
+                        #fff 1px,
+                        #fff 5%);
+                  }
+                </style>
+
+
+
+                <div x-data="app()" x-cloak class="px-4 h-60">
+                  <div class="max-w-lg mx-auto py-1 h-60">
+                    <div class="shadow p-1 rounded-lg bg-white">
+                      <div class="md:flex md:justify-between md:items-center">
+                        <div>
+                          <h2 class="text-xl text-gray-800 font-bold leading-tight">Product Sales</h2>
+                          <p class="mb-2 text-gray-600 text-sm">Monthly Average</p>
+                        </div>
+
+                        <!-- Legends -->
+                        <div class="mb-4">
+                          <div class="flex items-center">
+                            <div class="w-2 h-2 bg-blue-600 mr-2 rounded-full"></div>
+                            <div class="text-sm text-gray-700">Sales</div>
                           </div>
                         </div>
                       </div>
-                      <!--Direct chat-->
-                      <div class="p-1 grid grid-cols-1 sm:grid-cols-1 md:grid-flow-cols md:grid-cols-2 ">
-                        <div class="rounded shadow-lg bg-gray-100">
-                           <div class="bg-gray-600 text-white text-center  ">
-                              Direct chat
-                           </div>
-                           <div class="overflow-auto h-40 ">
-      
-      
-                              <div class="w-full px-5 flex flex-col justify-between">
-                                 <div class="flex flex-col mt-5">
-                                    <div class="flex justify-end mb-4">
-                                       <div
-                                          class="mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
-                                          Welcome to group everyone !
-                                       </div>
-                                       <img src="./images/letra-A.png" class="object-cover h-8 w-8 rounded-full" alt="" />
-                                    </div>
-                                    <div class="flex justify-start mb-4">
-                                       <img src="./images/letra-C.png" class="object-cover h-8 w-8 rounded-full" alt="" />
-                                       <div
-                                          class="ml-2 py-3 px-4 bg-gray-400 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white">
-                                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-                                          at praesentium, aut ullam delectus odio error sit rem. Architecto
-                                          nulla doloribus laborum illo rem enim dolor odio saepe,
-                                          consequatur quas?
-                                       </div>
-                                    </div>
-                                    <div class="flex justify-end mb-4">
-                                       <div>
-                                          <div
-                                             class="mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
-                                             Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                             Magnam, repudiandae.
-                                          </div>
-      
-                                          <div
-                                             class="mt-4 mr-2 py-3 px-4 bg-blue-400 rounded-bl-3xl rounded-tl-3xl rounded-tr-xl text-white">
-                                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                             Debitis, reiciendis!
-                                          </div>
-                                       </div>
-                                       <img src="./images/letra-A.png" class="object-cover h-8 w-8 rounded-full" alt="" />
-                                    </div>
-                                    <div class="flex justify-start mb-4">
-                                       <img src="./images/letra-C.png" class="object-cover h-8 w-8 rounded-full" alt="" />
-                                       <div
-                                          class="ml-2 py-3 px-4 bg-gray-400 rounded-br-3xl rounded-tr-3xl rounded-tl-xl text-white">
-                                          happy holiday guys!
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="py-5">
-                                    <input class="w-full bg-gray-300 py-5 px-3 rounded-xl" type="text"
-                                       placeholder="type your message here..." />
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <!--graph-->
-                        <div class="rounded shadow-lg ">
-                           <!-- component -->
-                           <div class="antialiased sans-serif    ">
-      
-                              <style>
-                                 body {
-                                    font-family: 'IBM Plex Mono', sans-serif;
-                                 }
-      
-                                 [x-cloak] {
-                                    display: none;
-                                 }
-      
-                                 .line {
-                                    background: repeating-linear-gradient(to bottom,
-                                          #eee,
-                                          #eee 1px,
-                                          #fff 1px,
-                                          #fff 8%);
-                                 }
-      
-                                 .tick {
-                                    background: repeating-linear-gradient(to right,
-                                          #eee,
-                                          #eee 1px,
-                                          #fff 1px,
-                                          #fff 5%);
-                                 }
-                              </style>
-      
-      
-      
-                              <div x-data="app()" x-cloak class="px-4 h-60">
-                                 <div class="max-w-lg mx-auto py-1 h-60">
-                                    <div class="shadow p-1 rounded-lg bg-white">
-                                       <div class="md:flex md:justify-between md:items-center">
-                                          <div>
-                                             <h2 class="text-xl text-gray-800 font-bold leading-tight">Product Sales</h2>
-                                             <p class="mb-2 text-gray-600 text-sm">Monthly Average</p>
-                                          </div>
-      
-                                          <!-- Legends -->
-                                          <div class="mb-4">
-                                             <div class="flex items-center">
-                                                <div class="w-2 h-2 bg-blue-600 mr-2 rounded-full"></div>
-                                                <div class="text-sm text-gray-700">Sales</div>
-                                             </div>
-                                          </div>
-                                       </div>
-      
-      
-                                       <div class="line my-8 ">
-                                          <!-- Tooltip -->
-                                          <template x-if="tooltipOpen == true">
-                                             <div x-ref="tooltipContainer"
-                                                class="p-0 m-0 z-10 shadow-lg rounded-lg absolute h-auto block"
-                                                :style="`bottom: ${tooltipY}px; left: ${tooltipX}px`">
-                                                <div class="shadow-xs rounded-lg bg-white p-2">
-                                                   <div class="flex items-center justify-between text-sm">
-                                                      <div>Sales:</div>
-                                                      <div class="font-bold ml-2">
-                                                         <span x-html="tooltipContent"></span>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </template>
-      
-                                          <!-- Bar Chart -->
-                                          <div class="flex -mx-2 items-end mb-2">
-                                             <template x-for="data in chartData">
-      
-                                                <div class="px-2 w-1/6">
-                                                   <div :style="`height: ${data}px`"
-                                                      class="transition ease-in duration-200 bg-blue-600 hover:bg-blue-400 relative"
-                                                      @mouseenter="showTooltip($event); tooltipOpen = true"
-                                                      @mouseleave="hideTooltip($event)">
-                                                      <div x-text="data"
-                                                         class="text-center absolute top-0 left-0 right-0 -mt-6 text-gray-800 text-sm">
-                                                      </div>
-                                                   </div>
-                                                </div>
-      
-                                             </template>
-                                          </div>
-      
-                                          <!-- Labels -->
-                                          <div class="border-t border-gray-400 mx-auto"
-                                             :style="`height: 1px; width: ${ 100 - 1/chartData.length*100 + 3}%`"></div>
-                                          <div class="flex -mx-2 items-end">
-                                             <template x-for="data in labels">
-                                                <div class="px-2 w-1/6">
-                                                   <div class="bg-red-600 relative">
-                                                      <div
-                                                         class="text-center absolute top-0 left-0 right-0 h-2 -mt-px bg-gray-400 mx-auto"
-                                                         style="width: 1px"></div>
-                                                      <div x-text="data"
-                                                         class="text-center absolute top-0 left-0 right-0 mt-3 text-gray-700 text-sm">
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </template>
-                                          </div>
-      
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-      
-                              <script>
-                                 function app() {
-                                    return {
-                                       chartData: [112, 10, 225, 134, 101, 80, 50, 100, 200],
-                                       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
-      
-                                       tooltipContent: '',
-                                       tooltipOpen: false,
-                                       tooltipX: 0,
-                                       tooltipY: 0,
-                                       showTooltip(e) {
-                                          console.log(e);
-                                          this.tooltipContent = e.target.textContent
-                                          this.tooltipX = e.target.offsetLeft - e.target.clientWidth;
-                                          this.tooltipY = e.target.clientHeight + e.target.clientWidth;
-                                       },
-                                       hideTooltip(e) {
-                                          this.tooltipContent = '';
-                                          this.tooltipOpen = false;
-                                          this.tooltipX = 0;
-                                          this.tooltipY = 0;
-                                       }
-                                    }
-                                 }
-                              </script>
-                           </div>
-                        </div>
-      
-                     </div>
 
-                </div>
-            </div>
-            </div>
 
-            <!-- Contacto -->
-            <div>
-                <form action="" class="form bg-white p-6 my-10 relative">
-                <div class="icon bg-blue-300 text-gray-800 w-6 h-6 absolute flex items-center justify-center p-5" style="left:-40px">
-                    <i class="fal fa-phone-volume fa-fw text-2xl transform -rotate-45"></i>
+                      <div class="line my-8 ">
+                        <!-- Tooltip -->
+                        <template x-if="tooltipOpen == true">
+                          <div x-ref="tooltipContainer" class="p-0 m-0 z-10 shadow-lg rounded-lg absolute h-auto block"
+                            :style="`bottom: ${tooltipY}px; left: ${tooltipX}px`">
+                            <div class="shadow-xs rounded-lg bg-white p-2">
+                              <div class="flex items-center justify-between text-sm">
+                                <div>Sales:</div>
+                                <div class="font-bold ml-2">
+                                  <span x-html="tooltipContent"></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </template>
+
+                        <!-- Bar Chart -->
+                        <div class="flex -mx-2 items-end mb-2">
+                          <template x-for="data in chartData">
+
+                            <div class="px-2 w-1/6">
+                              <div :style="`height: ${data}px`"
+                                class="transition ease-in duration-200 bg-blue-600 hover:bg-blue-400 relative"
+                                @mouseenter="showTooltip($event); tooltipOpen = true" @mouseleave="hideTooltip($event)">
+                                <div x-text="data"
+                                  class="text-center absolute top-0 left-0 right-0 -mt-6 text-gray-800 text-sm">
+                                </div>
+                              </div>
+                            </div>
+
+                          </template>
+                        </div>
+
+                        <!-- Labels -->
+                        <div class="border-t border-gray-400 mx-auto"
+                          :style="`height: 1px; width: ${ 100 - 1/chartData.length*100 + 3}%`"></div>
+                        <div class="flex -mx-2 items-end">
+                          <template x-for="data in labels">
+                            <div class="px-2 w-1/6">
+                              <div class="bg-red-600 relative">
+                                <div class="text-center absolute top-0 left-0 right-0 h-2 -mt-px bg-gray-400 mx-auto"
+                                  style="width: 1px"></div>
+                                <div x-text="data"
+                                  class="text-center absolute top-0 left-0 right-0 mt-3 text-gray-700 text-sm">
+                                </div>
+                              </div>
+                            </div>
+                          </template>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h3 class="text-2xl text-gray-900 font-semibold">¡Déjanso contactarte!</h3>
-                <p class="text-gray-600">Te ayudaremos en lo que necesites</p>
-                <div class="flex space-x-5 mt-3">
-                    <input type="text" name="" id="" placeholder="Tu Nombre" class="border p-2 sm:px-0 sm:mx-0 md:p-2 sm:w-min w-1/2">
-                    <input type="tel" name="" id="" placeholder="Tu Teléfono" class="border p-2 sm:px-0 sm:mx-0 md:p-2 sm:w-5/12 w-1/2">
-                </div>
-                <input type="email" name="" id="" placeholder="Tu Correo Electrónico" class="border p-2 w-full mt-3">
-                <textarea name="" id="" cols="10" rows="3" placeholder="Cuéntamos tu consulta" class="border p-2 mt-3 w-full"></textarea>
-                <input type="submit" value="Enviar" class="w-full mt-6 bg-blue-300 hover:bg-blue-500 text-gray-800 font-semibold p-3">
-                </form>
-            </div>
-            <!-- Fin Contacto -->
-        </main>
-        <footer class="bg-gray-600 sm:mt-10 m-0">
-            <div class="py-4">
-              <div class="flex px-3 m-auto text-gray-400 text-sm flex-col md:flex-row max-w-6xl items-center justify-center">
-                Desarrollo de Portales Web 2 © Copyright 2021. All Rights Reserved.
+
+                <script>
+                  function app() {
+                    return {
+                      chartData: [112, 10, 225, 134, 101, 80, 50, 100, 200],
+                      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+
+                      tooltipContent: '',
+                      tooltipOpen: false,
+                      tooltipX: 0,
+                      tooltipY: 0,
+                      showTooltip(e) {
+                        console.log(e);
+                        this.tooltipContent = e.target.textContent
+                        this.tooltipX = e.target.offsetLeft - e.target.clientWidth;
+                        this.tooltipY = e.target.clientHeight + e.target.clientWidth;
+                      },
+                      hideTooltip(e) {
+                        this.tooltipContent = '';
+                        this.tooltipOpen = false;
+                        this.tooltipX = 0;
+                        this.tooltipY = 0;
+                      }
+                    }
+                  }
+                </script>
               </div>
             </div>
-          </footer>
-    </body>
+
+          </div>
+
+        </div>
+      </div>
+
+       <!-- Contacto -->
+      <div class="flex-1"> 
+    <div>
+      <form action="" class="form bg-white p-6 my-10 ">
+        <div class="icon bg-blue-300 text-gray-800 w-6 h-6  flex items-center justify-center p-5"
+          style="left:-40px">
+          <i class="fal fa-phone-volume fa-fw text-2xl transform -rotate-45"></i>
+        </div>
+        <h3 class="text-2xl text-gray-900 font-semibold">¡Déjanso contactarte!</h3>
+        <p class="text-gray-600">Te ayudaremos en lo que necesites</p>
+        <div class="flex space-x-5 mt-3">
+          <input type="text" name="" id="" placeholder="Tu Nombre"
+            class="border p-2 sm:px-0 sm:mx-0 md:p-2 sm:w-min w-1/2">
+          <input type="tel" name="" id="" placeholder="Tu Teléfono"
+            class="border p-2 sm:px-0 sm:mx-0 md:p-2 sm:w-5/12 w-1/2">
+        </div>
+        <input type="email" name="" id="" placeholder="Tu Correo Electrónico" class="border p-2 w-full mt-3">
+        <textarea name="" id="" cols="10" rows="3" placeholder="Cuéntamos tu consulta"
+          class="border p-2 mt-3 w-full"></textarea>
+        <input type="submit" value="Enviar"
+          class="w-full mt-6 bg-blue-300 hover:bg-blue-500 text-gray-800 font-semibold p-3">
+      </form>
+    </div>
+    <!-- Fin Contacto -->
+
+    <footer class="bg-gray-600 sm:mt-10 m-0">
+      <div class="py-4">
+        <div class="flex px-3 m-auto text-gray-400 text-sm flex-col md:flex-row max-w-6xl items-center justify-center">
+          Desarrollo de Portales Web 2 © Copyright 2021. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+    </div>
+
+
+    </div>
+
+   
+  </main>
+  
+</body>
+
 </html>
